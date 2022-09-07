@@ -20,6 +20,6 @@ jobs:
           -H "Accept: application/vnd.github+json" \ 
           -H "Authorization: Bearer <YOUR-TOKEN>" \
           https://api.github.com/repos/OWNER/REPO/deployments \
-          -d '{"ref":"topic-branch","payload":"{ \"deploy\": \"migrate\" }","description":"Deploy request from hubot"}''
+          -d '{"ref":"main","payload":"{ \"deploy\": \"migrate\" }","description":"Deploy request from hubot"}''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
