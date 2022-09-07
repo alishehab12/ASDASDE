@@ -10,7 +10,7 @@ on:
 jobs:
   check_user_permission:
     runs-on: ubuntu-latest
-    name: A job to check user's permission level
+    name: A job to check user's permission leve
     steps:
       # Check for write permission
       - name: Run only if user has sufficient permissions
