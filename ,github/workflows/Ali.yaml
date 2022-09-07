@@ -1,0 +1,19 @@
+name: Action Sample Workflow
+
+# Run workflow when a new pull request is opened
+on: 
+  push:
+    branches:
+     - main
+  discussion:
+    types: [created]
+jobs:
+  check_user_permission:
+    runs-on: ubuntu-latest
+    name: A job to check user's permission level
+    steps:
+      # Check for write permission
+      - name: Run only if user has sufficient permissions
+        run: 'curl -X POST https://api.github.com/repos/alishehab12/ASDASDE/deployments -H "Authorization: Bearer $GITHUB_TOKEN"'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
