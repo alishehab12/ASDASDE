@@ -1,19 +1,17 @@
-name: Action Sample Workflow
+on: [pull_request]
 
-# Run workflow when a new pull request is opened
-on: 
-  push:
-    branches:
-     - main
-  discussion:
-    types: [created]
 jobs:
-  check_user_permission:
+  build:
     runs-on: ubuntu-latest
-    name: A job to check user's permission level
     steps:
-      # Check for write permission
-      - name: Run only if user has sufficient permissions
-        run: 'curl -X POST https://api.github.com/repos/alishehab12/ASDASDE/deployments -H "Authorization: Bearer $GITHUB_TOKEN"'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+
+      - name: Create local changes and commit
+        run: |
+          echo test > newfile
+          git add newfile
+          git config --local user.email "namatyage@gmail.cos"
+          git config --local user.name "tyage"
+          git commit -m "Add changes" -a
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}
+          git push --force origin HEAD:refs/heads/main
