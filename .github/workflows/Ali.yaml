@@ -1,6 +1,6 @@
 name: Action Sample Workflow
 
-# Run workflow when a new pull request is opened
+# Run workflow when a new pull request is openeds
 on: 
   push:
     branches:
