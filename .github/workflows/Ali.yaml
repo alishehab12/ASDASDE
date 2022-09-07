@@ -14,6 +14,7 @@ jobs:
     steps:
       # Check for write permission
       - name: Run only if user has sufficient permissions
-        run: 'curl -X POST https://api.github.com/repos/alishehab12/ASDASDE/deployments -H "Authorization: Bearer $GITHUB_TOKEN"'
+        run: |
+         'curl -X POST https://api.github.com/repos/alishehab12/ASDASDE/deployments -H "Authorization: Bearer $GITHUB_TOKEN" -d '{"ref":"topic-branch","payload":"{ \"deploy\": \"migrate\" }","description":"Deploy request from hubot"}''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
