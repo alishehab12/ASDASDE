@@ -14,6 +14,6 @@ jobs:
     steps:
       # Check for write permission
       - name: Run only if user has sufficient permissions
-        run: 'curl -X DELETEc https://api.github.com/repos/Ali-Shehab/ASDASDE/deployments/645050309 -H "Authorization: Bearer $GITHUB_TOKEN"'
+        run: 'curl -X DELETE https://api.github.com/repos/Ali-Shehab/ASDASDE/deployments/645050309 -H "Authorization: Bearer $GITHUB_TOKEN"'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
